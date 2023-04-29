@@ -7,8 +7,8 @@ from pandas_datareader import data
 from sklearn.model_selection import train_test_split
 import time
 import datetime
-import sqlite3
-from sqlite3 import Error
+import folium
+import requests
 
 conn = sqlite3.connect('aapl_database') 
 c = conn.cursor()

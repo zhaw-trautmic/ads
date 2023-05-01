@@ -1,4 +1,6 @@
 from pygooglenews import GoogleNews
+import json
+import time
 
 gn = GoogleNews()
 s = gn.search('boeing OR airbus')

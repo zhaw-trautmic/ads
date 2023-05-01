@@ -93,3 +93,31 @@ for epoch in range(num_epochs):
 
 # Make predictions
 X_tensor = torch.from_numpy(X).float()
+
+with torch.no_grad():
+    y_pred_tensor = net(X_tensor)
+    
+y_pred = y_pred_tensor.numpy().flatten()
+
+# Make predictions on test set
+X_test_tensor = torch.from_numpy(X_test).float()
+with torch.no_grad():
+    y_test_pred_tensor = net(X_test_tensor)
+
+y_test_pred = y_test_pred_tensor.numpy().flatten()
+
+# Compute R2-score and MSE on test set
+r2 = r2_score(y_test, y_test_pred)
+mse = mean_squared_error(y_test, y_test_pred)
+
+print(f"R2-score on test set: {r2:.4f}")
+print(f"MSE on test set: {mse:.4f}")
+
+# Plot predictions against true values
+plt.figure(figsize=(12,6))
+plt.title('Apple Stock Price Predictions')
+plt.xlabel('Open Price ($)')
+plt.ylabel('Close Price ($)')
+sns.scatterplot(x=X_test.flatten(), y=y_test)
+sns.lineplot(x=X_test.flatten(), y=y_test_pred, color='red')
+plt.show()

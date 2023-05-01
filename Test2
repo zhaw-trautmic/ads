@@ -1,0 +1,35 @@
+Comment:
+
+This Python code fetches historical stock price data for Apple (AAPL) from Yahoo Finance using the pandas_datareader library. The data is stored in a pandas DataFrame and then written to an SQLite database file named "aaplsqlite.db". The data is then loaded from the database into another pandas DataFrame for data cleaning and visualization purposes.
+
+After data cleaning and visualization, the code splits the data into training and test sets and then converts them into PyTorch tensors. It then defines a neural network model with three fully connected layers (64, 64, and 1 neurons) using the PyTorch nn.Module class. The model is trained on the training data using the mean squared error (MSE) loss function and the Adam optimizer. The number of epochs used for training is 5000, and the loss is printed every 100 epochs.
+
+Finally, the trained model is used to make predictions on the entire dataset by converting the "Open" column of the original DataFrame to a PyTorch tensor, which is passed through the trained neural network model to produce predicted closing prices.
+
+--
+
+This Python code fetches stock price data for Apple from Yahoo Finance and writes it to an SQLite database. Then it cleans and visualizes the data using pandas, seaborn, and matplotlib. Finally, it trains a neural network using PyTorch to predict the stock's closing price based on its opening price. Here's a breakdown of the code:
+
+The required libraries are imported, including pandas, numpy, seaborn, matplotlib, and PyTorch modules.
+
+The stock price data is fetched from Yahoo Finance using the ticker symbol "AAPL", and the data is filtered for a specific date range and interval. The data is then read into a pandas DataFrame.
+
+The DataFrame is written to an SQLite database file. A new table "aapl_prices" is created and the data is inserted into the table.
+
+The data is read from the SQLite database into a new DataFrame called "df". The data is then cleaned by removing any duplicate rows and converting the "Date" column to a datetime object.
+
+The cleaned data is plotted using seaborn and matplotlib to show the closing price of Apple stock over time.
+
+The data is split into training and testing sets using the "train_test_split" function from scikit-learn. The opening and closing prices are separated into "X" and "y" variables, respectively.
+
+The training data is converted to PyTorch tensors using the "torch.from_numpy" function.
+
+A neural network model is defined using the PyTorch nn.Module class. The model has three fully connected layers with ReLU activation functions.
+
+The loss function (mean squared error) and optimizer (Adam) are defined.
+
+The model is trained for a specified number of epochs (5000 in this case) using the training data. The forward pass is computed, the loss is calculated, and the gradients are propagated backwards through the network to update the weights using the optimizer.
+
+The model is used to make predictions on the entire dataset by converting the "X" data to a PyTorch tensor.
+
+Overall, this code shows how to use PyTorch to build a simple neural network for regression on time-series data.

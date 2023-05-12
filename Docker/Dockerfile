@@ -9,6 +9,7 @@ RUN pip install pygooglenews==0.1.2
 RUN pip install feedparser==6.0.0
 RUN pip install torch
 RUN pip install textblob
+RUN pip install tensorflow
 
 #Add Jupyter notebook and data
 ADD aktienkurs-code.ipynb /home/jovyan

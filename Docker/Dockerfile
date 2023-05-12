@@ -10,6 +10,8 @@ RUN pip install feedparser==6.0.0
 RUN pip install torch
 RUN pip install textblob
 RUN pip install tensorflow
+RUN pip install pandas numpy matplotlib scikit-learn tensorflow
+
 
 #Add Jupyter notebook and data
 ADD aktienkurs-code.ipynb /home/jovyan

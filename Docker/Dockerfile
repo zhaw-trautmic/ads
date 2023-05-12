@@ -11,6 +11,9 @@ RUN pip install torch
 RUN pip install textblob
 RUN pip install tensorflow
 RUN pip install pandas numpy matplotlib scikit-learn tensorflow
+RUN pip install yfinance 
+RUN pip install folium
+RUN pip install requests
 
 
 #Add Jupyter notebook and data

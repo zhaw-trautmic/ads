@@ -18,3 +18,4 @@ RUN pip install requests
 
 #Add Jupyter notebook and data
 ADD aktienkurs-code.ipynb /home/jovyan
+ADD apple-twitter-texts.csv /home/jovyan
